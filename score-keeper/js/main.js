@@ -9,7 +9,7 @@ const playToSelect = document.querySelector('#playTo');
 
 let p1Score = 0;
 let p2Score = 0;
-let winningScore = 5;
+let winningScore = 1;
 let isGameOver = false;
 
 function addPointP1(){
@@ -17,8 +17,8 @@ function addPointP1(){
         p1Score += 1;
         if(p1Score === winningScore){
             isGameOver = true;
-            p1Display.classList.add('winner');
-            p2Display.classList.add('looser');
+            p1Display.classList.add('has-text-success');
+            p2Display.classList.add('has-text-danger');
         }
         p1Display.innerText = p1Score;
     }
@@ -30,8 +30,8 @@ function addPointP2(){
         p2Score += 1;
         if(p2Score === winningScore){
             isGameOver = true;
-            p2Display.classList.add('winner');
-            p1Display.classList.add('looser');
+            p2Display.classList.add('has-text-success');
+            p1Display.classList.add('has-text-danger');
         }
         p2Display.innerText = p2Score;
     }
@@ -43,8 +43,8 @@ function resetScore(){
     p2Score = 0;
     p1Display.innerText = p1Score;
     p2Display.innerText = p2Score;
-    p1Display.classList.remove('winner', 'looser');
-    p2Display.classList.remove('winner', 'looser');
+    p1Display.classList.remove('has-text-success', 'has-text-danger');
+    p2Display.classList.remove('has-text-success', 'has-text-danger');
 }
 
 function changePlayToSelect(){
